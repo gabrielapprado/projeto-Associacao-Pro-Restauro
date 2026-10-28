@@ -1,0 +1,21 @@
+@layer utilities {
+  .formItem {
+    display: grid;
+    gap: 0.5rem;
+  }
+  .formLabel {
+    &[data-error="true"] {
+      color: var(--destructive);
+    }
+  }
+  .formDescription {
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    color: var(--muted-foreground);
+  }
+  .formMessage {
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    color: var(--destructive);
+  }
+}

@@ -1,0 +1,391 @@
+/* Status badges for educational projects */
+
+.statusEmAndamento {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.statusPlanejamento {
+  background-color: #999;
+  color: #fff;
+}
+
+.statusCaptando {
+  background-color: #D98B48;
+  color: #fff;
+}
+
+/* Progress bar track */
+
+.progressTrack {
+  height: 8px;
+  background-color: #e8e0d0;
+}
+
+/* Progress bar fill — width remains inline (dynamic) */
+
+.progressFill {
+  background-color: #DBAD38;
+}
+
+/* Progress label text */
+
+.progressLabel {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+/* Progress percent text */
+
+.progressPercent {
+  font-size: 0.8rem;
+  color: #A62D37;
+  font-weight: 700;
+}
+
+.buttonEstatuto{
+  color: var(--barroco-dourado);
+  font-size: 1.25rem;
+  
+}
+
+@layer utilities {
+  .page {
+    background-color: var(--barroco-creme);
+    font-family: 'Lato', sans-serif;
+  }
+  .hero {
+    background-color: var(--barroco-vermelho);
+    padding-inline: 1.5rem;
+    padding-block: 4rem;
+    text-align: center;
+  }
+  .heroTitle {
+    font-family: 'Playfair Display', serif;
+    color: #ffffff;
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+  .divider {
+    width: 60px;
+    height: 3px;
+    background-color: var(--barroco-dourado);
+    margin: 1rem auto;
+  }
+  .heroSubtitle {
+    color: #f5d5c0;
+    font-size: 1rem;
+    margin-inline: auto;
+    max-width: 700px;
+  }
+  .section {
+    background-color: #f5ebe0;
+    padding-inline: 1.5rem;
+    padding-block: 5rem;
+  }
+  .container {
+    margin-inline: auto;
+    max-width: var(--container-7xl);
+  }
+  .projetosStyle {
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+  .heading {
+    font-family: 'Playfair Display', serif;
+    color: var(--barroco-marrom);
+    font-size: 2.5rem;
+  }
+  .body {
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-inline: auto;
+    margin-bottom: 1.5rem;
+    max-width: 900px;
+  }
+  .body2 {
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-inline: auto;
+    max-width: 900px;
+  }
+  .projetosStyle2 {
+    margin-top: 1.5rem;
+  }
+  .button {
+    color: var(--barroco-dourado);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid rgba(219, 173, 56, 0.38);
+    padding-bottom: 2px;
+    transition: border-color 0.2s;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    --ui-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+    text-decoration-line: underline;
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    &:hover {
+      @media (hover: hover) {
+        opacity: 80%;
+      }
+    }
+  }
+  .grid {
+    margin-top: 3rem;
+    display: grid;
+    gap: 2rem;
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @media (width >= 64rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .card {
+    border: 1px solid rgba(219, 173, 56, 0.25);
+    overflow: hidden;
+    border-radius: var(--radius-2xl);
+    background-color: var(--color-white);
+    --ui-shadow: 0 10px 15px -3px var(--ui-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--ui-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+  }
+  .projetosStyle3 {
+    position: relative;
+  }
+  .image {
+    height: 13rem;
+    width: 100%;
+    object-fit: cover;
+  }
+  .label {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    border-radius: calc(infinity * 1px);
+    background-color: color-mix(in srgb, #000 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-black) 60%, transparent);
+    }
+    padding-inline: 0.75rem;
+    padding-block: 0.25rem;
+    font-size: var(--text-xs);
+    line-height: var(--ui-leading, var(--text-xs--line-height));
+    color: var(--color-white);
+  }
+  .projetosStyle4 {
+    padding: 1.5rem;
+  }
+  .heading2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--barroco-marrom);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+  .body3 {
+    color: #666;
+    font-size: 0.875rem;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+    --ui-leading: 1.65;
+    line-height: 1.65;
+  }
+  .button2 {
+    background-color: var(--barroco-dourado);
+    color: #1a1a1a;
+    cursor: pointer;
+    width: 100%;
+    border-radius: calc(infinity * 1px);
+    padding-block: 0.625rem;
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    --ui-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    &:hover {
+      @media (hover: hover) {
+        opacity: 90%;
+      }
+    }
+  }
+  .section2 {
+    padding-inline: 1.5rem;
+    padding-block: 5rem;
+  }
+  .body4 {
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-inline: auto;
+    margin-top: 1rem;
+    max-width: 900px;
+  }
+  .card2 {
+    border: 2px solid rgba(219, 173, 56, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: var(--radius-2xl);
+    background-color: var(--color-white);
+    --ui-shadow: 0 10px 15px -3px var(--ui-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--ui-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+  }
+  .image2 {
+    height: 12rem;
+    width: 100%;
+    object-fit: cover;
+  }
+  .label2 {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    border-radius: calc(infinity * 1px);
+    padding-inline: 0.75rem;
+    padding-block: 0.25rem;
+    font-size: var(--text-xs);
+    line-height: var(--ui-leading, var(--text-xs--line-height));
+    --ui-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+  .column {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+  .body5 {
+    color: #666;
+    font-size: 0.875rem;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+    flex: 1;
+    --ui-leading: 1.65;
+    line-height: 1.65;
+  }
+  .projetosStyle5 {
+    margin-bottom: 1.25rem;
+  }
+  .row {
+    margin-bottom: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .projetosStyle6 {
+    overflow: hidden;
+    border-radius: calc(infinity * 1px);
+  }
+  .projetosStyle7 {
+    height: 100%;
+    border-radius: calc(infinity * 1px);
+  }
+  .row2 {
+    margin-top: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .label3 {
+    color: #999;
+    font-size: 0.8rem;
+  }
+  .icon {
+    display: inline;
+  }
+  .button3 {
+    background-color: var(--barroco-dourado);
+    color: #1a1a1a;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    border-radius: calc(infinity * 1px);
+    padding-block: 0.625rem;
+    text-align: center;
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    --ui-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    &:hover {
+      @media (hover: hover) {
+        opacity: 90%;
+      }
+    }
+  }
+  .section3 {
+    background-color: #f5ebe0;
+    padding-inline: 1.5rem;
+    padding-block: 4rem;
+    text-align: center;
+  }
+  .heading3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--barroco-marrom);
+    font-size: 2rem;
+  }
+  .body6 {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-top: 0.75rem;
+  }
+  .row3 {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .button4 {
+    border-color: var(--barroco-vermelho);
+    color: var(--barroco-vermelho);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: calc(infinity * 1px);
+    border-style: var(--ui-border-style);
+    border-width: 2px;
+    padding-inline: 2rem;
+    padding-block: 0.75rem;
+    --ui-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    &:hover {
+      @media (hover: hover) {
+        opacity: 80%;
+      }
+    }
+  }
+  .button5 {
+    background-color: var(--barroco-dourado);
+    color: #1a1a1a;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: calc(infinity * 1px);
+    padding-inline: 2rem;
+    padding-block: 0.75rem;
+    --ui-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    &:hover {
+      @media (hover: hover) {
+        opacity: 90%;
+      }
+    }
+  }
+}

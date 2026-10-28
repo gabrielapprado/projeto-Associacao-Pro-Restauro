@@ -1,0 +1,5 @@
+.icon {
+  composes: apriToaster apriGroup from global;
+}
+
+@layer utilities;

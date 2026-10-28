@@ -1,0 +1,184 @@
+@layer utilities {
+  .row {
+    position: fixed;
+    inset: 0px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: color-mix(in srgb, #000 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-black) 50%, transparent);
+    }
+    padding: 1rem;
+  }
+  .card {
+    max-height: 90vh;
+    width: 100%;
+    max-width: var(--container-3xl);
+    overflow-y: auto;
+    border-radius: var(--radius-2xl);
+    background-color: var(--color-white);
+    --ui-shadow: 0 25px 50px -12px var(--ui-shadow-color, rgb(0 0 0 / 0.25));
+    box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+  }
+  .row2 {
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom-style: var(--ui-border-style);
+    border-bottom-width: 1px;
+    background-color: var(--color-white);
+    padding: 1.5rem;
+  }
+  .button {
+    border-radius: calc(infinity * 1px);
+    padding: 0.5rem;
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --ui-gradient-from, --ui-gradient-via, --ui-gradient-to;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-100);
+      }
+    }
+  }
+  .form {
+    :where(& > :not(:last-child)) {
+      --ui-space-y-reverse: 0;
+      margin-block-start: calc(1.5rem * var(--ui-space-y-reverse));
+      margin-block-end: calc(1.5rem * calc(1 - var(--ui-space-y-reverse)));
+    }
+    padding: 1.5rem;
+  }
+  .adminFormModalStyle {
+    cursor: pointer;
+    border-radius: calc(var(--radius) + 4px);
+    border-style: var(--ui-border-style);
+    border-width: 2px;
+    --ui-border-style: dashed;
+    border-style: dashed;
+    padding: 2rem;
+    text-align: center;
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+  }
+  .adminFormModalStyle2 {
+    position: relative;
+  }
+  .image {
+    margin-inline: auto;
+    max-height: 12rem;
+    border-radius: var(--radius);
+  }
+  .button2 {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    border-radius: calc(infinity * 1px);
+    background-color: var(--color-red-500);
+    padding: 0.25rem;
+    color: var(--color-white);
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-red-600);
+      }
+    }
+  }
+  .icon {
+    margin-inline: auto;
+    margin-bottom: 0.75rem;
+  }
+  .input {
+    display: none;
+  }
+  .input2 {
+    width: 100%;
+    border-radius: calc(var(--radius) + 4px);
+    border-style: var(--ui-border-style);
+    border-width: 1px;
+    padding-inline: 1rem;
+    padding-block: 0.75rem;
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    --ui-outline-style: none;
+    outline-style: none;
+  }
+  .textarea {
+    width: 100%;
+    resize: none;
+    border-radius: calc(var(--radius) + 4px);
+    border-style: var(--ui-border-style);
+    border-width: 1px;
+    padding-inline: 1rem;
+    padding-block: 0.75rem;
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    --ui-outline-style: none;
+    outline-style: none;
+  }
+  .select {
+    width: 100%;
+    border-radius: calc(var(--radius) + 4px);
+    border-style: var(--ui-border-style);
+    border-width: 1px;
+    padding-inline: 1rem;
+    padding-block: 0.75rem;
+    --ui-outline-style: none;
+    outline-style: none;
+  }
+  .grid {
+    display: grid;
+    gap: 1rem;
+    @media (width >= 40rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .row3 {
+    display: flex;
+    gap: 1rem;
+    padding-top: 1rem;
+  }
+  .button3 {
+    flex: 1;
+    border-radius: calc(infinity * 1px);
+    border-style: var(--ui-border-style);
+    border-width: 2px;
+    padding-block: 0.875rem;
+    font-size: var(--text-base);
+    line-height: var(--ui-leading, var(--text-base--line-height));
+    --ui-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    &:hover {
+      @media (hover: hover) {
+        opacity: 90%;
+      }
+    }
+  }
+  .button4 {
+    flex: 1;
+    border-radius: calc(infinity * 1px);
+    padding-block: 0.875rem;
+    font-size: var(--text-base);
+    line-height: var(--ui-leading, var(--text-base--line-height));
+    --ui-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    &:hover {
+      @media (hover: hover) {
+        opacity: 90%;
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@layer utilities {
+  .imageWithFallbackStyle {
+    display: inline-block;
+    background-color: var(--color-gray-100);
+    text-align: center;
+    vertical-align: middle;
+  }
+  .row {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+}

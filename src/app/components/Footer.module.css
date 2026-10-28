@@ -1,0 +1,79 @@
+@layer utilities {
+  .footer {
+    color: var(--color-white);
+  }
+  .grid {
+    margin-inline: auto;
+    display: grid;
+    max-width: var(--container-7xl);
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 2.5rem;
+    padding-inline: 1.5rem;
+    padding-block: 3.5rem;
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+  .footerStyle {
+    @media (width >= 48rem) {
+      grid-column: span 1 / span 1;
+    }
+  }
+  .footerStyle2 {
+    margin-bottom: 1rem;
+  }
+  .row {
+    margin-top: 1.25rem;
+    display: flex;
+    gap: 0.75rem;
+  }
+  .button {
+    border-radius: calc(infinity * 1px);
+    padding: 0.5rem;
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    &:hover {
+      @media (hover: hover) {
+        opacity: 80%;
+      }
+    }
+  }
+  .button2 {
+    margin-bottom: 0.5rem;
+    display: block;
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --ui-gradient-from, --ui-gradient-via, --ui-gradient-to;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-amber-300);
+      }
+    }
+  }
+  .footerStyle3 {
+    :where(& > :not(:last-child)) {
+      --ui-space-y-reverse: 0;
+      margin-block-start: calc(0.75rem * var(--ui-space-y-reverse));
+      margin-block-end: calc(0.75rem * calc(1 - var(--ui-space-y-reverse)));
+    }
+  }
+  .row2 {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .icon {
+    margin-top: 0.125rem;
+    flex-shrink: 0;
+  }
+  .row3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .footerStyle4 {
+    padding-block: 1.25rem;
+    text-align: center;
+  }
+}

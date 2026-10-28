@@ -1,0 +1,50 @@
+@layer utilities {
+  .tooltipContent {
+    z-index: 50;
+    width: fit-content;
+    transform-origin: var(--radix-tooltip-content-transform-origin);
+    animation: enter var(--ui-animation-duration,var(--ui-duration,.15s))var(--ui-ease,ease)var(--ui-animation-delay,0s)var(--ui-animation-iteration-count,1)var(--ui-animation-direction,normal)var(--ui-animation-fill-mode,none);
+    border-radius: calc(var(--radius) - 2px);
+    background-color: var(--primary);
+    padding-inline: 0.75rem;
+    padding-block: 0.375rem;
+    font-size: var(--text-xs);
+    line-height: var(--ui-leading, var(--text-xs--line-height));
+    text-wrap: balance;
+    color: var(--primary-foreground);
+    --ui-enter-opacity: calc(0/100);
+    --ui-enter-opacity: 0;
+    --ui-enter-scale: calc(95*1%);
+    --ui-enter-scale: .95;
+    &[data-side="bottom"] {
+      --ui-enter-translate-y: calc(var(--spacing) * 2*-1);
+    }
+    &[data-side="left"] {
+      --ui-enter-translate-x: 0.5rem;
+    }
+    &[data-side="right"] {
+      --ui-enter-translate-x: calc(var(--spacing) * 2*-1);
+    }
+    &[data-side="top"] {
+      --ui-enter-translate-y: 0.5rem;
+    }
+    &[data-state="closed"] {
+      animation: exit var(--ui-animation-duration,var(--ui-duration,.15s))var(--ui-ease,ease)var(--ui-animation-delay,0s)var(--ui-animation-iteration-count,1)var(--ui-animation-direction,normal)var(--ui-animation-fill-mode,none);
+      --ui-exit-opacity: calc(0/100);
+      --ui-exit-opacity: 0;
+      --ui-exit-scale: calc(95*1%);
+      --ui-exit-scale: .95;
+    }
+  }
+  .iconSize {
+    z-index: 50;
+    width: 0.625rem;
+    height: 0.625rem;
+    --ui-translate-y: calc(-50% - 2px);
+    translate: var(--ui-translate-x) var(--ui-translate-y);
+    rotate: 45deg;
+    border-radius: 2px;
+    background-color: var(--primary);
+    fill: var(--primary);
+  }
+}

@@ -1,0 +1,7 @@
+@layer utilities {
+  .skeleton {
+    animation: var(--animate-pulse);
+    border-radius: calc(var(--radius) - 2px);
+    background-color: var(--accent);
+  }
+}

@@ -1,0 +1,179 @@
+@layer utilities {
+  .chart {
+    display: flex;
+    aspect-ratio: var(--aspect-video);
+    justify-content: center;
+    font-size: var(--text-xs);
+    line-height: var(--ui-leading, var(--text-xs--line-height));
+    & :global(.recharts-cartesian-axis-tick) text {
+      fill: var(--muted-foreground);
+    }
+    & :global(.recharts-cartesian-grid) line[stroke='#ccc'] {
+      stroke: var(--border);
+      @supports (color: color-mix(in lab, red, red)) {
+        stroke: color-mix(in oklab, var(--border) 50%, transparent);
+      }
+    }
+    & :global(.recharts-curve):global(.recharts-tooltip-cursor) {
+      stroke: var(--border);
+    }
+    & :global(.recharts-dot)[stroke='#fff'] {
+      stroke: transparent;
+    }
+    & :global(.recharts-layer) {
+      --ui-outline-style: none;
+      outline-style: none;
+      @media (forced-colors: active) {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+    }
+    & :global(.recharts-polar-grid) [stroke='#ccc'] {
+      stroke: var(--border);
+    }
+    & :global(.recharts-radial-bar-background-sector) {
+      fill: var(--muted);
+    }
+    & :global(.recharts-rectangle):global(.recharts-tooltip-cursor) {
+      fill: var(--muted);
+    }
+    & :global(.recharts-reference-line) [stroke='#ccc'] {
+      stroke: var(--border);
+    }
+    & :global(.recharts-sector) {
+      --ui-outline-style: none;
+      outline-style: none;
+      @media (forced-colors: active) {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+    }
+    & :global(.recharts-sector)[stroke='#fff'] {
+      stroke: transparent;
+    }
+    & :global(.recharts-surface) {
+      --ui-outline-style: none;
+      outline-style: none;
+      @media (forced-colors: active) {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+    }
+  }
+  .chartTooltipContentStyle {
+    --ui-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+  }
+  .grid {
+    display: grid;
+    min-width: 8rem;
+    align-items: flex-start;
+    gap: 0.375rem;
+    border-radius: var(--radius);
+    border-style: var(--ui-border-style);
+    border-width: 1px;
+    border-color: var(--border);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--border) 50%, transparent);
+    }
+    background-color: var(--background);
+    padding-inline: 0.625rem;
+    padding-block: 0.375rem;
+    font-size: var(--text-xs);
+    line-height: var(--ui-leading, var(--text-xs--line-height));
+    --ui-shadow: 0 20px 25px -5px var(--ui-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--ui-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+  }
+  .grid2 {
+    display: grid;
+    gap: 0.375rem;
+  }
+  .row {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 0.5rem;
+    &>svg {
+      height: 0.625rem;
+      width: 0.625rem;
+      color: var(--muted-foreground);
+    }
+  }
+  .chartTooltipContentStyle2 {
+    align-items: center;
+  }
+  .chartTooltipContentStyle3 {
+    flex-shrink: 0;
+    border-radius: 2px;
+    border-color: var(--color-border);
+    background-color: var(--color-bg);
+  }
+  .chartTooltipContentStyle4 {
+    height: 0.625rem;
+    width: 0.625rem;
+  }
+  .chartTooltipContentStyle5 {
+    width: 0.25rem;
+  }
+  .chartTooltipContentStyle6 {
+    width: 0px;
+    border-style: var(--ui-border-style);
+    border-width: 1.5px;
+    --ui-border-style: dashed;
+    border-style: dashed;
+    background-color: transparent;
+  }
+  .chartTooltipContentStyle7 {
+    margin-block: 0.125rem;
+  }
+  .row2 {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    --ui-leading: 1;
+    line-height: 1;
+  }
+  .chartTooltipContentStyle8 {
+    align-items: flex-end;
+  }
+  .label {
+    color: var(--muted-foreground);
+  }
+  .label2 {
+    font-family: var(--font-mono);
+    --ui-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+    color: var(--foreground);
+    --ui-numeric-spacing: tabular-nums;
+    font-variant-numeric: var(--ui-ordinal,) var(--ui-slashed-zero,) var(--ui-numeric-figure,) var(--ui-numeric-spacing,) var(--ui-numeric-fraction,);
+  }
+  .row3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .chartLegendContentStyle {
+    padding-bottom: 0.75rem;
+  }
+  .chartLegendContentStyle2 {
+    padding-top: 0.75rem;
+  }
+  .row4 {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    &>svg {
+      height: 0.75rem;
+      width: 0.75rem;
+      color: var(--muted-foreground);
+    }
+  }
+  .chartLegendContentStyle3 {
+    height: 0.5rem;
+    width: 0.5rem;
+    flex-shrink: 0;
+    border-radius: 2px;
+  }
+}

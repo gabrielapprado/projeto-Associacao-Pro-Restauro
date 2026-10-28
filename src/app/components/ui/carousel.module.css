@@ -1,0 +1,73 @@
+@layer utilities {
+  .carousel {
+    position: relative;
+  }
+  .carouselContent {
+    overflow: hidden;
+  }
+  .row {
+    display: flex;
+  }
+  .carouselContentStyle {
+    margin-left: -1rem;
+  }
+  .column {
+    margin-top: -1rem;
+    flex-direction: column;
+  }
+  .carouselItem {
+    min-width: 0px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: 100%;
+  }
+  .carouselItem2 {
+    padding-left: 1rem;
+  }
+  .carouselItem3 {
+    padding-top: 1rem;
+  }
+  .carouselPrevious {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border-radius: calc(infinity * 1px);
+  }
+  .carouselPrevious2 {
+    top: calc(1/2 * 100%);
+    left: -3rem;
+    --ui-translate-y: calc(calc(1/2 * 100%) * -1);
+    translate: var(--ui-translate-x) var(--ui-translate-y);
+  }
+  .carouselPrevious3 {
+    top: -3rem;
+    left: calc(1/2 * 100%);
+    --ui-translate-x: calc(calc(1/2 * 100%) * -1);
+    translate: var(--ui-translate-x) var(--ui-translate-y);
+    rotate: 90deg;
+  }
+  .visuallyHidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  .carouselNext {
+    top: calc(1/2 * 100%);
+    right: -3rem;
+    --ui-translate-y: calc(calc(1/2 * 100%) * -1);
+    translate: var(--ui-translate-x) var(--ui-translate-y);
+  }
+  .carouselNext2 {
+    bottom: -3rem;
+    left: calc(1/2 * 100%);
+    --ui-translate-x: calc(calc(1/2 * 100%) * -1);
+    translate: var(--ui-translate-x) var(--ui-translate-y);
+    rotate: 90deg;
+  }
+}

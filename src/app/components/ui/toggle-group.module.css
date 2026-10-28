@@ -1,0 +1,46 @@
+.toggleGroup {
+  composes: apriGroupToggleGroup from global;
+}
+
+@layer utilities {
+  .toggleGroup {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    border-radius: calc(var(--radius) - 2px);
+    &[data-variant="outline"] {
+      --ui-shadow: 0 1px 2px 0 var(--ui-shadow-color, rgb(0 0 0 / 0.05));
+      box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+    }
+  }
+  .toggleGroupItem {
+    min-width: 0px;
+    flex: 1;
+    flex-shrink: 0;
+    border-radius: 0;
+    --ui-shadow: 0 0 #0000;
+    box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+    &:first-child {
+      border-top-left-radius: calc(var(--radius) - 2px);
+      border-bottom-left-radius: calc(var(--radius) - 2px);
+    }
+    &:last-child {
+      border-top-right-radius: calc(var(--radius) - 2px);
+      border-bottom-right-radius: calc(var(--radius) - 2px);
+    }
+    &:focus {
+      z-index: 10;
+    }
+    &:focus-visible {
+      z-index: 10;
+    }
+    &[data-variant="outline"] {
+      border-left-style: var(--ui-border-style);
+      border-left-width: 0px;
+      &:first-child {
+        border-left-style: var(--ui-border-style);
+        border-left-width: 1px;
+      }
+    }
+  }
+}

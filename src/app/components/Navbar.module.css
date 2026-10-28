@@ -1,0 +1,101 @@
+@layer utilities {
+  .navigation {
+    position: sticky;
+    top: 0px;
+    z-index: 50;
+    --ui-shadow: 0 10px 15px -3px var(--ui-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--ui-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+  }
+  .container {
+    margin-inline: auto;
+    max-width: var(--container-7xl);
+    padding-inline: 1rem;
+    @media (width >= 40rem) {
+      padding-inline: 1.5rem;
+    }
+    @media (width >= 64rem) {
+      padding-inline: 2rem;
+    }
+  }
+  .row {
+    display: flex;
+    height: 4rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .button {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+  }
+  .row2 {
+    display: none;
+    align-items: center;
+    gap: 0.25rem;
+    @media (width >= 64rem) {
+      display: flex;
+    }
+  }
+  .button2 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-amber-300);
+      }
+    }
+  }
+  .row3 {
+    display: none;
+    align-items: center;
+    gap: 0.75rem;
+    @media (width >= 64rem) {
+      display: flex;
+    }
+  }
+  .button3 {
+    display: inline-flex;
+    align-items: center;
+    border-radius: calc(infinity * 1px);
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    --ui-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    --ui-duration: 200ms;
+    transition-duration: 200ms;
+  }
+  .button4 {
+    padding: 0.5rem;
+    color: var(--color-white);
+    @media (width >= 64rem) {
+      display: none;
+    }
+  }
+  .navbarStyle {
+    padding-inline: 1rem;
+    padding-bottom: 1rem;
+    @media (width >= 64rem) {
+      display: none;
+    }
+  }
+  .column {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .button5 {
+    display: inline-block;
+    border-radius: calc(infinity * 1px);
+    padding-inline: 1.5rem;
+    padding-block: 0.5rem;
+    text-align: center;
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    --ui-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+}

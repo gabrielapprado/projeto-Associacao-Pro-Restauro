@@ -1,0 +1,81 @@
+@layer utilities {
+  .resizablePanelGroup {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    &[data-panel-group-direction="vertical"] {
+      flex-direction: column;
+    }
+  }
+  .resizableHandle {
+    position: relative;
+    display: flex;
+    width: 1px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--border);
+    &::after {
+      content: var(--ui-content);
+      position: absolute;
+      content: var(--ui-content);
+      inset-block: 0px;
+      content: var(--ui-content);
+      left: calc(1/2 * 100%);
+      content: var(--ui-content);
+      width: 0.25rem;
+      content: var(--ui-content);
+      --ui-translate-x: calc(calc(1/2 * 100%) * -1);
+      translate: var(--ui-translate-x) var(--ui-translate-y);
+    }
+    &:focus-visible {
+      --ui-ring-shadow: var(--ui-ring-inset,) 0 0 0 calc(1px + var(--ui-ring-offset-width)) var(--ui-ring-color, currentcolor);
+      box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+      --ui-ring-color: var(--ring);
+      --ui-ring-offset-width: 1px;
+      --ui-ring-offset-shadow: var(--ui-ring-inset,) 0 0 0 var(--ui-ring-offset-width) var(--ui-ring-offset-color);
+      --ui-outline-style: none;
+      outline-style: none;
+      @media (forced-colors: active) {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+    }
+    &[data-panel-group-direction="vertical"] {
+      height: 1px;
+      width: 100%;
+      &::after {
+        content: var(--ui-content);
+        left: 0px;
+        content: var(--ui-content);
+        height: 0.25rem;
+        content: var(--ui-content);
+        width: 100%;
+        content: var(--ui-content);
+        --ui-translate-x: 0px;
+        translate: var(--ui-translate-x) var(--ui-translate-y);
+        content: var(--ui-content);
+        --ui-translate-y: calc(calc(1/2 * 100%) * -1);
+        translate: var(--ui-translate-x) var(--ui-translate-y);
+      }
+    }
+    &[data-panel-group-direction=vertical]>div {
+      rotate: 90deg;
+    }
+  }
+  .row {
+    z-index: 10;
+    display: flex;
+    height: 1rem;
+    width: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-xs);
+    border-style: var(--ui-border-style);
+    border-width: 1px;
+    background-color: var(--border);
+  }
+  .iconSize {
+    width: 0.625rem;
+    height: 0.625rem;
+  }
+}

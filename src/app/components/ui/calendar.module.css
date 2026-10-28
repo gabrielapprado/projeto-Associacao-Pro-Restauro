@@ -1,0 +1,202 @@
+.icon10 {
+  composes: apriDayRangeStart from global;
+}
+
+.icon11 {
+  composes: apriDayRangeEnd from global;
+}
+
+.icon14 {
+  composes: apriDayOutside from global;
+}
+
+@layer utilities {
+  .icon {
+    padding: 0.75rem;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    @media (width >= 40rem) {
+      flex-direction: row;
+    }
+  }
+  .column2 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .row {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.25rem;
+  }
+  .icon2 {
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    --ui-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+  }
+  .row2 {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .iconSize {
+    width: 1.75rem;
+    height: 1.75rem;
+    background-color: transparent;
+    padding: 0px;
+    opacity: 50%;
+    &:hover {
+      @media (hover: hover) {
+        opacity: 100%;
+      }
+    }
+  }
+  .icon3 {
+    position: absolute;
+    left: 0.25rem;
+  }
+  .icon4 {
+    position: absolute;
+    right: 0.25rem;
+  }
+  .icon5 {
+    width: 100%;
+    border-collapse: collapse;
+    :where(& > :not(:last-child)) {
+      --ui-space-x-reverse: 0;
+      margin-inline-start: calc(0.25rem * var(--ui-space-x-reverse));
+      margin-inline-end: calc(0.25rem * calc(1 - var(--ui-space-x-reverse)));
+    }
+  }
+  .row3 {
+    display: flex;
+  }
+  .icon6 {
+    width: 2rem;
+    border-radius: calc(var(--radius) - 2px);
+    font-size: 0.8rem;
+    --ui-font-weight: var(--font-weight-normal);
+    font-weight: var(--font-weight-normal);
+    color: var(--muted-foreground);
+  }
+  .row4 {
+    margin-top: 0.5rem;
+    display: flex;
+    width: 100%;
+  }
+  .icon7 {
+    position: relative;
+    padding: 0px;
+    text-align: center;
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    &:focus-within {
+      position: relative;
+      z-index: 20;
+    }
+    &:has([aria-selected]) {
+      background-color: var(--accent);
+    }
+    &:has([aria-selected]:global(.apriDayRangeEnd)) {
+      border-top-right-radius: calc(var(--radius) - 2px);
+      border-bottom-right-radius: calc(var(--radius) - 2px);
+    }
+  }
+  .icon8 {
+    &:has(>:global(.apriDayRangeEnd)) {
+      border-top-right-radius: calc(var(--radius) - 2px);
+      border-bottom-right-radius: calc(var(--radius) - 2px);
+    }
+    &:has(>:global(.apriDayRangeStart)) {
+      border-top-left-radius: calc(var(--radius) - 2px);
+      border-bottom-left-radius: calc(var(--radius) - 2px);
+    }
+    &:first-child {
+      &:has([aria-selected]) {
+        border-top-left-radius: calc(var(--radius) - 2px);
+        border-bottom-left-radius: calc(var(--radius) - 2px);
+      }
+    }
+    &:last-child {
+      &:has([aria-selected]) {
+        border-top-right-radius: calc(var(--radius) - 2px);
+        border-bottom-right-radius: calc(var(--radius) - 2px);
+      }
+    }
+  }
+  .icon9 {
+    &:has([aria-selected]) {
+      border-radius: calc(var(--radius) - 2px);
+    }
+  }
+  .iconSize2 {
+    width: 2rem;
+    height: 2rem;
+    padding: 0px;
+    --ui-font-weight: var(--font-weight-normal);
+    font-weight: var(--font-weight-normal);
+    &[aria-selected="true"] {
+      opacity: 100%;
+    }
+  }
+  .icon10 {
+    &[aria-selected="true"] {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+    }
+  }
+  .icon11 {
+    &[aria-selected="true"] {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+    }
+  }
+  .icon12 {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--primary);
+        color: var(--primary-foreground);
+      }
+    }
+    &:focus {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+    }
+  }
+  .icon13 {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+  .icon14 {
+    color: var(--muted-foreground);
+    &[aria-selected="true"] {
+      color: var(--muted-foreground);
+    }
+  }
+  .icon15 {
+    color: var(--muted-foreground);
+    opacity: 50%;
+  }
+  .icon16 {
+    &[aria-selected="true"] {
+      background-color: var(--accent);
+      color: var(--accent-foreground);
+    }
+  }
+  .icon17 {
+    visibility: hidden;
+  }
+  .iconSize3 {
+    width: 1rem;
+    height: 1rem;
+  }
+}

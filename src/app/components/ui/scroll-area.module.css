@@ -1,0 +1,55 @@
+@layer utilities {
+  .scrollArea {
+    position: relative;
+  }
+  .scrollAreaViewport {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    transition-property: color,box-shadow;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    --ui-outline-style: none;
+    outline-style: none;
+    &:focus-visible {
+      --ui-ring-shadow: var(--ui-ring-inset,) 0 0 0 calc(3px + var(--ui-ring-offset-width)) var(--ui-ring-color, currentcolor);
+      box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+      --ui-ring-color: var(--ring);
+      @supports (color: color-mix(in lab, red, red)) {
+        --ui-ring-color: color-mix(in oklab, var(--ring) 50%, transparent);
+      }
+      outline-style: var(--ui-outline-style);
+      outline-width: 1px;
+    }
+  }
+  .scrollAreaScrollbar {
+    display: flex;
+    touch-action: none;
+    padding: 1px;
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --ui-gradient-from, --ui-gradient-via, --ui-gradient-to;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .scrollAreaScrollbar2 {
+    height: 100%;
+    width: 0.625rem;
+    border-left-style: var(--ui-border-style);
+    border-left-width: 1px;
+    border-left-color: transparent;
+  }
+  .scrollAreaScrollbar3 {
+    height: 0.625rem;
+    flex-direction: column;
+    border-top-style: var(--ui-border-style);
+    border-top-width: 1px;
+    border-top-color: transparent;
+  }
+  .scrollAreaThumb {
+    position: relative;
+    flex: 1;
+    border-radius: calc(infinity * 1px);
+    background-color: var(--border);
+  }
+}

@@ -1,0 +1,275 @@
+@layer utilities {
+  .contextMenuSubTrigger {
+    display: flex;
+    cursor: default;
+    align-items: center;
+    border-radius: calc(var(--radius) - 4px);
+    padding-inline: 0.5rem;
+    padding-block: 0.375rem;
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    --ui-outline-style: none;
+    outline-style: none;
+    @media (forced-colors: active) {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+    -webkit-user-select: none;
+    user-select: none;
+    &:focus {
+      background-color: var(--accent);
+      color: var(--accent-foreground);
+    }
+    &[data-inset] {
+      padding-left: 2rem;
+    }
+    &[data-state="open"] {
+      background-color: var(--accent);
+      color: var(--accent-foreground);
+    }
+    & svg {
+      pointer-events: none;
+      flex-shrink: 0;
+    }
+    & svg:not([class*='iconSize']) {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+  .icon {
+    margin-left: auto;
+  }
+  .contextMenuSubContent {
+    z-index: 50;
+    min-width: 8rem;
+    transform-origin: var(--radix-context-menu-content-transform-origin);
+    overflow: hidden;
+    border-radius: calc(var(--radius) - 2px);
+    border-style: var(--ui-border-style);
+    border-width: 1px;
+    background-color: var(--popover);
+    padding: 0.25rem;
+    color: var(--popover-foreground);
+    --ui-shadow: 0 10px 15px -3px var(--ui-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--ui-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+    &[data-side="bottom"] {
+      --ui-enter-translate-y: calc(var(--spacing) * 2*-1);
+    }
+    &[data-side="left"] {
+      --ui-enter-translate-x: 0.5rem;
+    }
+    &[data-side="right"] {
+      --ui-enter-translate-x: calc(var(--spacing) * 2*-1);
+    }
+    &[data-side="top"] {
+      --ui-enter-translate-y: 0.5rem;
+    }
+    &[data-state="closed"] {
+      animation: exit var(--ui-animation-duration,var(--ui-duration,.15s))var(--ui-ease,ease)var(--ui-animation-delay,0s)var(--ui-animation-iteration-count,1)var(--ui-animation-direction,normal)var(--ui-animation-fill-mode,none);
+      --ui-exit-opacity: calc(0/100);
+      --ui-exit-opacity: 0;
+      --ui-exit-scale: calc(95*1%);
+      --ui-exit-scale: .95;
+    }
+    &[data-state="open"] {
+      animation: enter var(--ui-animation-duration,var(--ui-duration,.15s))var(--ui-ease,ease)var(--ui-animation-delay,0s)var(--ui-animation-iteration-count,1)var(--ui-animation-direction,normal)var(--ui-animation-fill-mode,none);
+      --ui-enter-opacity: calc(0/100);
+      --ui-enter-opacity: 0;
+      --ui-enter-scale: calc(95*1%);
+      --ui-enter-scale: .95;
+    }
+  }
+  .contextMenuContent {
+    z-index: 50;
+    max-height: var(--radix-context-menu-content-available-height);
+    min-width: 8rem;
+    transform-origin: var(--radix-context-menu-content-transform-origin);
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-radius: calc(var(--radius) - 2px);
+    border-style: var(--ui-border-style);
+    border-width: 1px;
+    background-color: var(--popover);
+    padding: 0.25rem;
+    color: var(--popover-foreground);
+    --ui-shadow: 0 4px 6px -1px var(--ui-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--ui-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+    &[data-side="bottom"] {
+      --ui-enter-translate-y: calc(var(--spacing) * 2*-1);
+    }
+    &[data-side="left"] {
+      --ui-enter-translate-x: 0.5rem;
+    }
+    &[data-side="right"] {
+      --ui-enter-translate-x: calc(var(--spacing) * 2*-1);
+    }
+    &[data-side="top"] {
+      --ui-enter-translate-y: 0.5rem;
+    }
+    &[data-state="closed"] {
+      animation: exit var(--ui-animation-duration,var(--ui-duration,.15s))var(--ui-ease,ease)var(--ui-animation-delay,0s)var(--ui-animation-iteration-count,1)var(--ui-animation-direction,normal)var(--ui-animation-fill-mode,none);
+      --ui-exit-opacity: calc(0/100);
+      --ui-exit-opacity: 0;
+      --ui-exit-scale: calc(95*1%);
+      --ui-exit-scale: .95;
+    }
+    &[data-state="open"] {
+      animation: enter var(--ui-animation-duration,var(--ui-duration,.15s))var(--ui-ease,ease)var(--ui-animation-delay,0s)var(--ui-animation-iteration-count,1)var(--ui-animation-direction,normal)var(--ui-animation-fill-mode,none);
+      --ui-enter-opacity: calc(0/100);
+      --ui-enter-opacity: 0;
+      --ui-enter-scale: calc(95*1%);
+      --ui-enter-scale: .95;
+    }
+  }
+  .contextMenuItem {
+    position: relative;
+    display: flex;
+    cursor: default;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: calc(var(--radius) - 4px);
+    padding-inline: 0.5rem;
+    padding-block: 0.375rem;
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    --ui-outline-style: none;
+    outline-style: none;
+    @media (forced-colors: active) {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+    -webkit-user-select: none;
+    user-select: none;
+    &:focus {
+      background-color: var(--accent);
+      color: var(--accent-foreground);
+    }
+    &[data-disabled] {
+      pointer-events: none;
+      opacity: 50%;
+    }
+    &[data-inset] {
+      padding-left: 2rem;
+    }
+    &[data-variant="destructive"] {
+      color: var(--destructive);
+      &:focus {
+        background-color: var(--destructive);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--destructive) 10%, transparent);
+        }
+        color: var(--destructive);
+      }
+    }
+    &:is(:global(.dark) *) {
+      &[data-variant="destructive"] {
+        &:focus {
+          background-color: var(--destructive);
+          @supports (color: color-mix(in lab, red, red)) {
+            background-color: color-mix(in oklab, var(--destructive) 20%, transparent);
+          }
+        }
+      }
+    }
+    & svg {
+      pointer-events: none;
+      flex-shrink: 0;
+    }
+    & svg:not([class*='iconSize']) {
+      width: 1rem;
+      height: 1rem;
+    }
+    & svg:not([class*='text-']) {
+      color: var(--muted-foreground);
+    }
+    &[data-variant="destructive"] {
+      :is(& > *) {
+        &:is(svg) {
+          color: var(--destructive) !important;
+        }
+      }
+    }
+  }
+  .contextMenuCheckboxItem {
+    position: relative;
+    display: flex;
+    cursor: default;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: calc(var(--radius) - 4px);
+    padding-block: 0.375rem;
+    padding-right: 0.5rem;
+    padding-left: 2rem;
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    --ui-outline-style: none;
+    outline-style: none;
+    @media (forced-colors: active) {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+    -webkit-user-select: none;
+    user-select: none;
+    &:focus {
+      background-color: var(--accent);
+      color: var(--accent-foreground);
+    }
+    &[data-disabled] {
+      pointer-events: none;
+      opacity: 50%;
+    }
+    & svg {
+      pointer-events: none;
+      flex-shrink: 0;
+    }
+    & svg:not([class*='iconSize']) {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+  .iconSize {
+    pointer-events: none;
+    position: absolute;
+    left: 0.5rem;
+    display: flex;
+    width: 0.875rem;
+    height: 0.875rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .iconSize2 {
+    width: 1rem;
+    height: 1rem;
+  }
+  .iconSize3 {
+    width: 0.5rem;
+    height: 0.5rem;
+    fill: currentcolor;
+  }
+  .contextMenuLabel {
+    padding-inline: 0.5rem;
+    padding-block: 0.375rem;
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    --ui-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+    color: var(--foreground);
+    &[data-inset] {
+      padding-left: 2rem;
+    }
+  }
+  .contextMenuSeparator {
+    margin-inline: -0.25rem;
+    margin-block: 0.25rem;
+    height: 1px;
+    background-color: var(--border);
+  }
+  .contextMenuShortcut {
+    margin-left: auto;
+    font-size: var(--text-xs);
+    line-height: var(--ui-leading, var(--text-xs--line-height));
+    --ui-tracking: var(--tracking-widest);
+    letter-spacing: var(--tracking-widest);
+    color: var(--muted-foreground);
+  }
+}

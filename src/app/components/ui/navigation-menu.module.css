@@ -1,0 +1,304 @@
+.navigationMenu {
+  composes: apriGroupNavigationMenu from global;
+}
+
+.navigationMenuList {
+  composes: apriGroup from global;
+}
+
+.base {
+  composes: apriGroup from global;
+}
+
+.navigationMenuTrigger {
+  composes: apriGroup from global;
+}
+
+@layer utilities {
+  .navigationMenu {
+    position: relative;
+    display: flex;
+    max-width: max-content;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+  }
+  .navigationMenuList {
+    display: flex;
+    flex: 1;
+    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+  .navigationMenuItem {
+    position: relative;
+  }
+  .base {
+    display: inline-flex;
+    height: 2.25rem;
+    width: max-content;
+    align-items: center;
+    justify-content: center;
+    border-radius: calc(var(--radius) - 2px);
+    background-color: var(--background);
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    --ui-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+    transition-property: color,box-shadow;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    --ui-outline-style: none;
+    outline-style: none;
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--accent);
+        color: var(--accent-foreground);
+      }
+    }
+    &:focus {
+      background-color: var(--accent);
+      color: var(--accent-foreground);
+    }
+    &:focus-visible {
+      --ui-ring-shadow: var(--ui-ring-inset,) 0 0 0 calc(3px + var(--ui-ring-offset-width)) var(--ui-ring-color, currentcolor);
+      box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+      --ui-ring-color: var(--ring);
+      @supports (color: color-mix(in lab, red, red)) {
+        --ui-ring-color: color-mix(in oklab, var(--ring) 50%, transparent);
+      }
+      outline-style: var(--ui-outline-style);
+      outline-width: 1px;
+    }
+    &:disabled {
+      pointer-events: none;
+      opacity: 50%;
+    }
+    &[data-state="open"] {
+      background-color: var(--accent);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--accent) 50%, transparent);
+      }
+      color: var(--accent-foreground);
+      &:hover {
+        @media (hover: hover) {
+          background-color: var(--accent);
+        }
+      }
+      &:focus {
+        background-color: var(--accent);
+      }
+    }
+  }
+  .iconSize {
+    position: relative;
+    top: 1px;
+    margin-left: 0.25rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --ui-gradient-from, --ui-gradient-via, --ui-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    --ui-duration: 300ms;
+    transition-duration: 300ms;
+    &:is(:where(:global(.apriGroup))[data-state="open"] *) {
+      rotate: 180deg;
+    }
+  }
+  .navigationMenuContent {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 0.5rem;
+    padding-right: 0.625rem;
+    &[data-motion="from-end"] {
+      --ui-enter-translate-x: 13rem;
+    }
+    &[data-motion="from-start"] {
+      --ui-enter-translate-x: calc(var(--spacing) * 52*-1);
+    }
+    &[data-motion="to-end"] {
+      --ui-exit-translate-x: 13rem;
+    }
+    &[data-motion="to-start"] {
+      --ui-exit-translate-x: calc(var(--spacing) * 52*-1);
+    }
+    &[data-motion^="from-"] {
+      animation: enter var(--ui-animation-duration,var(--ui-duration,.15s))var(--ui-ease,ease)var(--ui-animation-delay,0s)var(--ui-animation-iteration-count,1)var(--ui-animation-direction,normal)var(--ui-animation-fill-mode,none);
+      --ui-enter-opacity: 0;
+    }
+    &[data-motion^="to-"] {
+      animation: exit var(--ui-animation-duration,var(--ui-duration,.15s))var(--ui-ease,ease)var(--ui-animation-delay,0s)var(--ui-animation-iteration-count,1)var(--ui-animation-direction,normal)var(--ui-animation-fill-mode,none);
+      --ui-exit-opacity: 0;
+    }
+    @media (width >= 48rem) {
+      position: absolute;
+      width: auto;
+    }
+  }
+  .navigationMenuContent2 {
+    &:is(:where(:global(.apriGroupNavigationMenu))[data-viewport="false"] *) {
+      top: 100%;
+      margin-top: 0.375rem;
+      overflow: hidden;
+      border-radius: calc(var(--radius) - 2px);
+      border-style: var(--ui-border-style);
+      border-width: 1px;
+      background-color: var(--popover);
+      color: var(--popover-foreground);
+      --ui-shadow: 0 1px 3px 0 var(--ui-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--ui-shadow-color, rgb(0 0 0 / 0.1));
+      box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+      --ui-duration: 200ms;
+      transition-duration: 200ms;
+    }
+    :is(& *) {
+      &[data-slot="navigation-menu-link"] {
+        &:focus {
+          --ui-ring-shadow: var(--ui-ring-inset,) 0 0 0 calc(0px + var(--ui-ring-offset-width)) var(--ui-ring-color, currentcolor);
+          box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+          --ui-outline-style: none;
+          outline-style: none;
+        }
+      }
+    }
+    &:is(:where(:global(.apriGroupNavigationMenu))[data-viewport="false"] *) {
+      &[data-state="closed"] {
+        animation: exit var(--ui-animation-duration,var(--ui-duration,.15s))var(--ui-ease,ease)var(--ui-animation-delay,0s)var(--ui-animation-iteration-count,1)var(--ui-animation-direction,normal)var(--ui-animation-fill-mode,none);
+        --ui-exit-opacity: calc(0/100);
+        --ui-exit-opacity: 0;
+        --ui-exit-scale: calc(95*1%);
+        --ui-exit-scale: .95;
+      }
+      &[data-state="open"] {
+        animation: enter var(--ui-animation-duration,var(--ui-duration,.15s))var(--ui-ease,ease)var(--ui-animation-delay,0s)var(--ui-animation-iteration-count,1)var(--ui-animation-direction,normal)var(--ui-animation-fill-mode,none);
+        --ui-enter-opacity: calc(0/100);
+        --ui-enter-opacity: 0;
+        --ui-enter-scale: calc(95*1%);
+        --ui-enter-scale: .95;
+      }
+    }
+  }
+  .row {
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    isolation: isolate;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+  }
+  .navigationMenuViewport {
+    position: relative;
+    margin-top: 0.375rem;
+    height: var(--radix-navigation-menu-viewport-height);
+    width: 100%;
+    overflow: hidden;
+    border-radius: calc(var(--radius) - 2px);
+    border-style: var(--ui-border-style);
+    border-width: 1px;
+    background-color: var(--popover);
+    color: var(--popover-foreground);
+    --ui-shadow: 0 1px 3px 0 var(--ui-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--ui-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+    &[data-state="closed"] {
+      animation: exit var(--ui-animation-duration,var(--ui-duration,.15s))var(--ui-ease,ease)var(--ui-animation-delay,0s)var(--ui-animation-iteration-count,1)var(--ui-animation-direction,normal)var(--ui-animation-fill-mode,none);
+      --ui-exit-scale: calc(95*1%);
+      --ui-exit-scale: .95;
+    }
+    &[data-state="open"] {
+      animation: enter var(--ui-animation-duration,var(--ui-duration,.15s))var(--ui-ease,ease)var(--ui-animation-delay,0s)var(--ui-animation-iteration-count,1)var(--ui-animation-direction,normal)var(--ui-animation-fill-mode,none);
+      --ui-enter-scale: calc(90*1%);
+      --ui-enter-scale: .9;
+    }
+    @media (width >= 48rem) {
+      width: var(--radix-navigation-menu-viewport-width);
+    }
+  }
+  .navigationMenuLink {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    border-radius: calc(var(--radius) - 4px);
+    padding: 0.5rem;
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    --ui-outline-style: none;
+    outline-style: none;
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--accent);
+        color: var(--accent-foreground);
+      }
+    }
+    &:focus {
+      background-color: var(--accent);
+      color: var(--accent-foreground);
+    }
+    &:focus-visible {
+      --ui-ring-shadow: var(--ui-ring-inset,) 0 0 0 calc(3px + var(--ui-ring-offset-width)) var(--ui-ring-color, currentcolor);
+      box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+      --ui-ring-color: var(--ring);
+      @supports (color: color-mix(in lab, red, red)) {
+        --ui-ring-color: color-mix(in oklab, var(--ring) 50%, transparent);
+      }
+      outline-style: var(--ui-outline-style);
+      outline-width: 1px;
+    }
+    &[data-active="true"] {
+      background-color: var(--accent);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--accent) 50%, transparent);
+      }
+      color: var(--accent-foreground);
+      &:hover {
+        @media (hover: hover) {
+          background-color: var(--accent);
+        }
+      }
+      &:focus {
+        background-color: var(--accent);
+      }
+    }
+    & svg:not([class*='iconSize']) {
+      width: 1rem;
+      height: 1rem;
+    }
+    & svg:not([class*='text-']) {
+      color: var(--muted-foreground);
+    }
+  }
+  .navigationMenuIndicator {
+    top: 100%;
+    z-index: 1;
+    display: flex;
+    height: 0.375rem;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    &[data-state="hidden"] {
+      animation: exit var(--ui-animation-duration,var(--ui-duration,.15s))var(--ui-ease,ease)var(--ui-animation-delay,0s)var(--ui-animation-iteration-count,1)var(--ui-animation-direction,normal)var(--ui-animation-fill-mode,none);
+      --ui-exit-opacity: 0;
+    }
+    &[data-state="visible"] {
+      animation: enter var(--ui-animation-duration,var(--ui-duration,.15s))var(--ui-ease,ease)var(--ui-animation-delay,0s)var(--ui-animation-iteration-count,1)var(--ui-animation-direction,normal)var(--ui-animation-fill-mode,none);
+      --ui-enter-opacity: 0;
+    }
+  }
+  .navigationMenuIndicatorStyle {
+    position: relative;
+    top: 60%;
+    height: 0.5rem;
+    width: 0.5rem;
+    rotate: 45deg;
+    border-top-left-radius: calc(var(--radius) - 4px);
+    background-color: var(--border);
+    --ui-shadow: 0 4px 6px -1px var(--ui-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--ui-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+  }
+}

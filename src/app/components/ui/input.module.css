@@ -1,0 +1,92 @@
+@layer utilities {
+  .input {
+    display: flex;
+    height: 2.25rem;
+    width: 100%;
+    min-width: 0px;
+    border-radius: calc(var(--radius) - 2px);
+    border-style: var(--ui-border-style);
+    border-width: 1px;
+    border-color: var(--input);
+    background-color: var(--input-background);
+    padding-inline: 0.75rem;
+    padding-block: 0.25rem;
+    font-size: var(--text-base);
+    line-height: var(--ui-leading, var(--text-base--line-height));
+    transition-property: color,box-shadow;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    --ui-outline-style: none;
+    outline-style: none;
+    & *::selection {
+      background-color: var(--primary);
+    }
+    &::selection {
+      background-color: var(--primary);
+    }
+    & *::selection {
+      color: var(--primary-foreground);
+    }
+    &::selection {
+      color: var(--primary-foreground);
+    }
+    &::file-selector-button {
+      display: inline-flex;
+      height: 1.75rem;
+      border-style: var(--ui-border-style);
+      border-width: 0px;
+      background-color: transparent;
+      font-size: var(--text-sm);
+      line-height: var(--ui-leading, var(--text-sm--line-height));
+      --ui-font-weight: var(--font-weight-medium);
+      font-weight: var(--font-weight-medium);
+      color: var(--foreground);
+    }
+    &::placeholder {
+      color: var(--muted-foreground);
+    }
+    &:disabled {
+      pointer-events: none;
+      cursor: not-allowed;
+      opacity: 50%;
+    }
+    @media (width >= 48rem) {
+      font-size: var(--text-sm);
+      line-height: var(--ui-leading, var(--text-sm--line-height));
+    }
+    &:is(:global(.dark) *) {
+      background-color: var(--input);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--input) 30%, transparent);
+      }
+    }
+  }
+  .input2 {
+    &:focus-visible {
+      border-color: var(--ring);
+      --ui-ring-shadow: var(--ui-ring-inset,) 0 0 0 calc(3px + var(--ui-ring-offset-width)) var(--ui-ring-color, currentcolor);
+      box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+      --ui-ring-color: var(--ring);
+      @supports (color: color-mix(in lab, red, red)) {
+        --ui-ring-color: color-mix(in oklab, var(--ring) 50%, transparent);
+      }
+    }
+  }
+  .input3 {
+    &[aria-invalid="true"] {
+      border-color: var(--destructive);
+      --ui-ring-color: var(--destructive);
+      @supports (color: color-mix(in lab, red, red)) {
+        --ui-ring-color: color-mix(in oklab, var(--destructive) 20%, transparent);
+      }
+    }
+    &:is(:global(.dark) *) {
+      &[aria-invalid="true"] {
+        --ui-ring-color: var(--destructive);
+        @supports (color: color-mix(in lab, red, red)) {
+          --ui-ring-color: color-mix(in oklab, var(--destructive) 40%, transparent);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+@layer utilities {
+  .accordionItem {
+    border-bottom-style: var(--ui-border-style);
+    border-bottom-width: 1px;
+    &:last-child {
+      border-bottom-style: var(--ui-border-style);
+      border-bottom-width: 0px;
+    }
+  }
+  .row {
+    display: flex;
+  }
+  .accordionTrigger {
+    display: flex;
+    flex: 1;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    border-radius: calc(var(--radius) - 2px);
+    padding-block: 1rem;
+    text-align: left;
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    --ui-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    --ui-outline-style: none;
+    outline-style: none;
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-line: underline;
+      }
+    }
+    &:focus-visible {
+      border-color: var(--ring);
+      --ui-ring-shadow: var(--ui-ring-inset,) 0 0 0 calc(3px + var(--ui-ring-offset-width)) var(--ui-ring-color, currentcolor);
+      box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+      --ui-ring-color: var(--ring);
+      @supports (color: color-mix(in lab, red, red)) {
+        --ui-ring-color: color-mix(in oklab, var(--ring) 50%, transparent);
+      }
+    }
+    &:disabled {
+      pointer-events: none;
+      opacity: 50%;
+    }
+    &[data-state=open]>svg {
+      rotate: 180deg;
+    }
+  }
+  .iconSize {
+    pointer-events: none;
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    --ui-translate-y: 0.125rem;
+    translate: var(--ui-translate-x) var(--ui-translate-y);
+    color: var(--muted-foreground);
+    transition-property: transform, translate, scale, rotate;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    --ui-duration: 200ms;
+    transition-duration: 200ms;
+  }
+  .accordionContent {
+    overflow: hidden;
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    &[data-state="closed"] {
+      animation: accordion-up var(--ui-animation-duration,var(--ui-duration,.2s))var(--ui-ease,ease-out)var(--ui-animation-delay,0s)var(--ui-animation-iteration-count,1)var(--ui-animation-direction,normal)var(--ui-animation-fill-mode,none);
+    }
+    &[data-state="open"] {
+      animation: accordion-down var(--ui-animation-duration,var(--ui-duration,.2s))var(--ui-ease,ease-out)var(--ui-animation-delay,0s)var(--ui-animation-iteration-count,1)var(--ui-animation-direction,normal)var(--ui-animation-fill-mode,none);
+    }
+  }
+  .accordionContentStyle {
+    padding-top: 0px;
+    padding-bottom: 1rem;
+  }
+}

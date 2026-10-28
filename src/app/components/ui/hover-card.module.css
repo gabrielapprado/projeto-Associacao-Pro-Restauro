@@ -1,0 +1,47 @@
+@layer utilities {
+  .hoverCardContent {
+    z-index: 50;
+    width: 16rem;
+    transform-origin: var(--radix-hover-card-content-transform-origin);
+    border-radius: calc(var(--radius) - 2px);
+    border-style: var(--ui-border-style);
+    border-width: 1px;
+    background-color: var(--popover);
+    padding: 1rem;
+    color: var(--popover-foreground);
+    --ui-shadow: 0 4px 6px -1px var(--ui-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--ui-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+    --ui-outline-style: none;
+    outline-style: none;
+    @media (forced-colors: active) {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+    &[data-side="bottom"] {
+      --ui-enter-translate-y: calc(var(--spacing) * 2*-1);
+    }
+    &[data-side="left"] {
+      --ui-enter-translate-x: 0.5rem;
+    }
+    &[data-side="right"] {
+      --ui-enter-translate-x: calc(var(--spacing) * 2*-1);
+    }
+    &[data-side="top"] {
+      --ui-enter-translate-y: 0.5rem;
+    }
+    &[data-state="closed"] {
+      animation: exit var(--ui-animation-duration,var(--ui-duration,.15s))var(--ui-ease,ease)var(--ui-animation-delay,0s)var(--ui-animation-iteration-count,1)var(--ui-animation-direction,normal)var(--ui-animation-fill-mode,none);
+      --ui-exit-opacity: calc(0/100);
+      --ui-exit-opacity: 0;
+      --ui-exit-scale: calc(95*1%);
+      --ui-exit-scale: .95;
+    }
+    &[data-state="open"] {
+      animation: enter var(--ui-animation-duration,var(--ui-duration,.15s))var(--ui-ease,ease)var(--ui-animation-delay,0s)var(--ui-animation-iteration-count,1)var(--ui-animation-direction,normal)var(--ui-animation-fill-mode,none);
+      --ui-enter-opacity: calc(0/100);
+      --ui-enter-opacity: 0;
+      --ui-enter-scale: calc(95*1%);
+      --ui-enter-scale: .95;
+    }
+  }
+}

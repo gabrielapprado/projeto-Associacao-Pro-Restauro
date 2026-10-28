@@ -1,0 +1,589 @@
+/* ── Sticky navigation bar ── */
+
+.stickyTabBar {
+  border-bottom: 2px solid rgba(219, 173, 56, 0.25);
+}
+
+/* ── Tab buttons ── */
+
+.tabActive {
+  background-color: #DBAD38;
+  color: #1a1a1a;
+  border: 2px solid #DBAD38;
+  cursor: pointer;
+}
+
+.tabInactive {
+  background-color: #fff;
+  color: #4B1919;
+  border: 2px solid #e0d8cc;
+  cursor: pointer;
+}
+
+/* ── Status text (conteudos / cursos) ── */
+
+.statusPublicado {
+  font-size: 0.8rem;
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.statusRascunho {
+  font-size: 0.8rem;
+  color: #ff9800;
+  font-weight: 600;
+}
+
+/* ── Action icon buttons ── */
+
+.btnEdit {
+  background-color: rgba(217, 139, 72, 0.19);
+  cursor: pointer;
+}
+
+.btnDelete {
+  background-color: #ffebee;
+  cursor: pointer;
+}
+
+.btnEditInfo {
+  background-color: rgba(217, 139, 72, 0.19);
+  color: #A62D37;
+  cursor: pointer;
+}
+
+.btnCancel {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+/* ── Associado status badges (3-state) ── */
+
+.statusAtivo {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.statusPendente {
+  background-color: #fff8e1;
+  color: #f57f17;
+}
+
+.statusInativo {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+/* ── Expanded associado detail panel ── */
+
+.detailPanel {
+  background-color: #fff;
+  border: 1px solid rgba(219, 173, 56, 0.25);
+}
+
+.detailBorder {
+  border-color: rgba(219, 173, 56, 0.25);
+}
+
+/* ── Form field labels ── */
+
+.labelXs {
+  font-size: 0.75rem;
+  color: #666;
+  font-weight: 600;
+  display: block;
+}
+
+.labelSm {
+  font-size: 0.8rem;
+  color: #555;
+  font-weight: 600;
+  display: block;
+}
+
+/* ── Form input / select border ── */
+
+.fieldInput {
+  border-color: #e0d8cc;
+  font-size: 0.9rem;
+}
+
+/* ── Stat value inside info grid ── */
+
+.statValue {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #4B1919;
+  font-weight: 700;
+}
+
+/* ── Sub-headings at sizes not covered by globals ── */
+
+.subheadingMd {
+  font-family: 'Playfair Display', serif;
+  color: #4B1919;
+  font-size: 1.4rem;
+}
+
+.subheadingSm {
+  font-family: 'Playfair Display', serif;
+  color: #4B1919;
+  font-size: 1.3rem;
+}
+
+@layer utilities {
+  .page {
+    background-color: var(--barroco-creme);
+    font-family: 'Lato', sans-serif;
+    min-height: 100vh;
+  }
+  .hero {
+    background-color: var(--barroco-vermelho);
+    padding-inline: 1.5rem;
+    padding-block: 3rem;
+  }
+  .container {
+    margin-inline: auto;
+    max-width: var(--container-7xl);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .heroTitle {
+    font-family: 'Playfair Display', serif;
+    color: #ffffff;
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+  .divider {
+    width: 60px;
+    height: 3px;
+    background-color: var(--barroco-dourado);
+    margin: 1rem 0;
+  }
+  .heroSubtitle {
+    color: #f5d5c0;
+    font-size: 1rem;
+  }
+  .button {
+    background-color: var(--barroco-dourado);
+    color: #1a1a1a;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: calc(infinity * 1px);
+    padding-inline: 1.25rem;
+    padding-block: 0.625rem;
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    --ui-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    &:hover {
+      @media (hover: hover) {
+        opacity: 90%;
+      }
+    }
+  }
+  .painelAdminStyle {
+    background-color: #f5ebe0;
+    position: sticky;
+    top: 4rem;
+    z-index: 40;
+  }
+  .container2 {
+    margin-inline: auto;
+    display: flex;
+    max-width: var(--container-7xl);
+    gap: 1rem;
+    padding-inline: 1.5rem;
+    padding-block: 1rem;
+  }
+  .button2 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: calc(infinity * 1px);
+    padding-inline: 1.5rem;
+    padding-block: 0.75rem;
+    --ui-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+  }
+  .section {
+    padding-inline: 1.5rem;
+    padding-block: 3rem;
+  }
+  .row2 {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .heading {
+    font-family: 'Playfair Display', serif;
+    color: var(--barroco-marrom);
+    font-size: 2rem;
+  }
+  .card {
+    border: 1px solid rgba(219, 173, 56, 0.25);
+    border-radius: var(--radius-2xl);
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    --ui-shadow: 0 10px 15px -3px var(--ui-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--ui-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+  }
+  .painelAdminStyle2 {
+    :where(& > :not(:last-child)) {
+      --ui-space-y-reverse: 0;
+      margin-block-start: calc(1rem * var(--ui-space-y-reverse));
+      margin-block-end: calc(1rem * calc(1 - var(--ui-space-y-reverse)));
+    }
+  }
+  .row3 {
+    background-color: #f5ebe0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: calc(var(--radius) + 4px);
+    padding: 1rem;
+  }
+  .row4 {
+    flex: 1;
+  }
+  .heading2 {
+    color: var(--barroco-marrom);
+    margin-bottom: 0.25rem;
+    --ui-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+  .row5 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .body {
+    color: #666;
+    font-size: 0.85rem;
+  }
+  .label {
+    color: #999;
+    font-size: 0.8rem;
+  }
+  .row6 {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .button3 {
+    border-radius: calc(infinity * 1px);
+    padding: 0.5rem;
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    &:hover {
+      @media (hover: hover) {
+        opacity: 70%;
+      }
+    }
+  }
+  .grid {
+    display: grid;
+    gap: 1.5rem;
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .heading3 {
+    margin-bottom: 1rem;
+  }
+  .heading4 {
+    color: var(--barroco-marrom);
+    --ui-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+  .painelAdminStyle3 {
+    background-color: #f5ebe0;
+    border-radius: calc(var(--radius) + 4px);
+    padding: 1rem;
+  }
+  .row7 {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .row8 {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+  }
+  .body2 {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .painelAdminStyle4 {
+    :where(& > :not(:last-child)) {
+      --ui-space-y-reverse: 0;
+      margin-block-start: calc(2.5rem * var(--ui-space-y-reverse));
+      margin-block-end: calc(2.5rem * calc(1 - var(--ui-space-y-reverse)));
+    }
+  }
+  .row9 {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .button4 {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: calc(infinity * 1px);
+    padding-inline: 1.25rem;
+    padding-block: 0.625rem;
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    --ui-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    &:hover {
+      @media (hover: hover) {
+        opacity: 90%;
+      }
+    }
+  }
+  .button5 {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: calc(infinity * 1px);
+    padding-inline: 1rem;
+    padding-block: 0.625rem;
+    font-size: var(--text-sm);
+    line-height: var(--ui-leading, var(--text-sm--line-height));
+    --ui-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+    transition-property: all;
+    transition-timing-function: var(--ui-ease, var(--default-transition-timing-function));
+    transition-duration: var(--ui-duration, var(--default-transition-duration));
+    &:hover {
+      @media (hover: hover) {
+        opacity: 70%;
+      }
+    }
+  }
+  .grid2 {
+    display: grid;
+    gap: 1rem;
+    @media (width >= 40rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @media (width >= 64rem) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+  .text {
+    margin-bottom: 0.375rem;
+  }
+  .input {
+    color: var(--barroco-marrom);
+    width: 100%;
+    border-radius: var(--radius);
+    border-style: var(--ui-border-style);
+    border-width: 1px;
+    background-color: var(--color-white);
+    padding-inline: 0.75rem;
+    padding-block: 0.375rem;
+    --ui-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+    --ui-outline-style: none;
+    outline-style: none;
+  }
+  .grid3 {
+    display: grid;
+    gap: 1rem;
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .text2 {
+    margin-bottom: 0.25rem;
+  }
+  .input2 {
+    color: var(--barroco-marrom);
+    width: 100%;
+    border-radius: var(--radius);
+    border-style: var(--ui-border-style);
+    border-width: 1px;
+    background-color: var(--color-white);
+    padding-inline: 0.75rem;
+    padding-block: 0.375rem;
+    --ui-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+    --ui-outline-style: none;
+    outline-style: none;
+  }
+  .card2 {
+    border: 1px solid rgba(219, 173, 56, 0.25);
+    margin-bottom: 1rem;
+    border-radius: calc(var(--radius) + 4px);
+    background-color: var(--color-white);
+    padding: 1rem;
+    --ui-shadow: 0 1px 3px 0 var(--ui-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--ui-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+  }
+  .grid4 {
+    display: grid;
+    gap: 1rem;
+    @media (width >= 40rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .label2 {
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .input3 {
+    width: 100%;
+    border-radius: var(--radius);
+    border-style: var(--ui-border-style);
+    border-width: 1px;
+    padding-inline: 0.75rem;
+    padding-block: 0.5rem;
+    --ui-outline-style: none;
+    outline-style: none;
+  }
+  .select {
+    width: 100%;
+    cursor: pointer;
+    border-radius: var(--radius);
+    border-style: var(--ui-border-style);
+    border-width: 1px;
+    padding-inline: 0.75rem;
+    padding-block: 0.5rem;
+    --ui-outline-style: none;
+    outline-style: none;
+  }
+  .card3 {
+    border: 1px solid rgba(219, 173, 56, 0.25);
+    :where(& > :not(:last-child)) {
+      --ui-space-y-reverse: 0;
+      margin-block-start: calc(0.75rem * var(--ui-space-y-reverse));
+      margin-block-end: calc(0.75rem * calc(1 - var(--ui-space-y-reverse)));
+    }
+    border-radius: var(--radius-2xl);
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    --ui-shadow: 0 10px 15px -3px var(--ui-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--ui-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--ui-inset-shadow), var(--ui-inset-ring-shadow), var(--ui-ring-offset-shadow), var(--ui-ring-shadow), var(--ui-shadow);
+  }
+  .row10 {
+    background-color: #f5ebe0;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: calc(var(--radius) + 4px);
+    padding: 1rem;
+  }
+  .row11 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .label3 {
+    border-radius: calc(infinity * 1px);
+    padding-inline: 0.625rem;
+    padding-block: 0.125rem;
+    font-size: var(--text-xs);
+    line-height: var(--ui-leading, var(--text-xs--line-height));
+    --ui-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+  .body3 {
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 0.125rem;
+  }
+  .row12 {
+    margin-left: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .painelAdminStyle5 {
+    margin-top: 0.5rem;
+    :where(& > :not(:last-child)) {
+      --ui-space-y-reverse: 0;
+      margin-block-start: calc(1.5rem * var(--ui-space-y-reverse));
+      margin-block-end: calc(1.5rem * calc(1 - var(--ui-space-y-reverse)));
+    }
+    border-radius: calc(var(--radius) + 4px);
+    padding: 1.25rem;
+  }
+  .painelAdminStyle6 {
+    border-bottom-style: var(--ui-border-style);
+    border-bottom-width: 1px;
+    padding-bottom: 1rem;
+  }
+  .heading5 {
+    font-family: 'Playfair Display', serif;
+    color: var(--barroco-marrom);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .body4 {
+    color: #666;
+    font-size: 0.875rem;
+    line-height: 1.65;
+  }
+  .heading6 {
+    color: var(--barroco-marrom);
+    margin-bottom: 1rem;
+    font-size: var(--text-base);
+    line-height: var(--ui-leading, var(--text-base--line-height));
+    --ui-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .grid5 {
+    display: grid;
+    gap: 1rem;
+    @media (width >= 40rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .input4 {
+    margin-top: 0.25rem;
+    width: 100%;
+    border-radius: var(--radius);
+    border-style: var(--ui-border-style);
+    border-width: 1px;
+    padding-inline: 0.75rem;
+    padding-block: 0.5rem;
+    --ui-outline-style: none;
+    outline-style: none;
+  }
+  .painelAdminStyle7 {
+    @media (width >= 40rem) {
+      grid-column: span 2 / span 2;
+    }
+  }
+  .row13 {
+    display: flex;
+    gap: 0.75rem;
+    border-top-style: var(--ui-border-style);
+    border-top-width: 1px;
+    padding-top: 1rem;
+  }
+}
